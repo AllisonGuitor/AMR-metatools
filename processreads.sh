@@ -1,7 +1,7 @@
 #!/bin/bash
 echo using prefix $1
 
-## THe line below might need to be adjusted depending on the output of the sequencing data. 
+## The line below might need to be adjusted depending on the output of the sequencing data. 
 gunzip $1/*R*fastq.gz
 
 cat $1/*R1*fastq >> $1/R1.fastq
