@@ -5,6 +5,11 @@ This repository contains the necessary scripts for running a metagenomic analysi
 This suite of commands are ideal for use with MiSeq or HiSeq Illumina sequencing data (2 x 250 bp reads ideally)
 This pipeline can be used with either shotgun sequencing data or targeted capture data. 
 
+**Requirements**
+
+- Skewer v0.2.2 - https://github.com/relipmoc/skewer 
+- BBTools dedupe.sh https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/dedupe-guide/ 
+
 **Step 1 - Trim reads**
 
 Use the processreads.sh script to trim reads using [skewer](https://doi.org/10.1186/1471-2105-15-182) (Version 0.2.2 was used for this work).
