@@ -59,6 +59,7 @@ For processing many samples, it is ideal to create a for loop or file to run all
 
 ***Step 3 - Run all.sh file ***
 Ensure the folder in which you are running the all.sh command contains the runrgibwt.sh script with the correct paths to your reads. 
+Lines 13/14 should be changed to the direct path of the reads. 
 
 
 
