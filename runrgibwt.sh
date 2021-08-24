@@ -1,4 +1,3 @@
-
 #Number is a unique value associated with the sample you are running
 NUMBER=$1
 
@@ -68,10 +67,10 @@ python3 scripts/report_one.py \
 echo "===================================  Count Reads Gene_mapping_data ==================================="
 cat /path/to/output/$1.overall_mapping_stats.txt
 wc /path/to/output/$1.gene_mapping_data.txt
-~/Desktop/Programs/filterbyreadcounts-2.sh /path/to/output/$1
+additionalscripts/filterbyreadcounts.sh /path/to/output/$1
 wc /path/to/output/$1.final_report1.tsv
 
-stats.py /path/to/output/$1.scaffolds.fasta
+additionalscripts/stats.py /path/to/output/$1.scaffolds.fasta
 wc /path/to/output/$1.scaffolds.fasta.output.txt
 
 echo Count Perfect Hits
