@@ -37,7 +37,7 @@ Where $1 is the name of the folder containing the raw reads.
 
 Other read trimming and deduplication software can be used at this step. 
 
-** Optional Step - Subsampling ***
+**Optional Step - Subsampling**
 
 Reads can be subsampled in any way if the user wants. We used `seqtk sample`. The following can be generated as a bash script. Example with subsampling to 50,000 reads (paired)
 
@@ -57,9 +57,19 @@ For processing many samples, it is ideal to create a for loop or file to run all
 ./runrgibwt.sh SAMPLEID > SAMPLEID.log 2>&1
 ```
 
-***Step 3 - Run all.sh file ***
+**Step 3 - Run all.sh file**
 Ensure the folder in which you are running the all.sh command contains the [runrgibwt.sh](meta-tools/runrgibwt.sh) script with the correct paths to your reads. 
-Lines 13/14 should be changed to the direct path of the reads along with lines 49 and 50. 
+Lines [13/14](meta-tools/runrgibwt.sh#L13) should be changed to the direct path of the reads along with lines [49/50](meta-tools/runrgibwt.sh#L49). 
+Line [17](meta-tools/runrgibwt.sh#L17) and subsequent lines should direct to the output location. 
+
+Line 18 can be modified in case the CARD reference is installed globally (remove the --local flag) and if the wildcard/variants db is not included (remove the --wildcard flag)
+
+If the database is not installed locally there are a few lines that need to be changed in the [filter_pull_reads.py script](meta-tools/scripts/filter_pull_reads.py)
+
+- Line 68, 161 and 166 run rgi main/kmer query - remove the --local flag if the db is loaded globally
+Also check the following lines: 
+- Line 61 and Line 150 - ensure the correct path to metaspades and that the memory and threads flags are appropriate
+
 
 
 
