@@ -51,6 +51,7 @@ seqtk sample -s 11 $1/*trimmed-dedupe-*2.fastq 50000 > $1/trimmed-dedupe-R2-50K.
 ```
 
 **Step 2 - Generate a `all.sh` file**
+
 For processing many samples, it is ideal to create a for loop or file to run all samples consecutively. 
 
 ```
@@ -58,11 +59,12 @@ For processing many samples, it is ideal to create a for loop or file to run all
 ```
 
 **Step 3 - Run all.sh file**
-Ensure the folder in which you are running the all.sh command contains the [runrgibwt.sh](meta-tools/runrgibwt.sh) script with the correct paths to your reads. 
-Lines [13/14](meta-tools/runrgibwt.sh#L13) should be changed to the direct path of the reads along with lines [49/50](meta-tools/runrgibwt.sh#L49). 
-Line [17](meta-tools/runrgibwt.sh#L17) and subsequent lines should direct to the output location. 
 
-Line 18 can be modified in case the CARD reference is installed globally (remove the --local flag) and if the wildcard/variants db is not included (remove the --wildcard flag)
+Ensure the folder in which you are running the all.sh command contains the [runrgibwt.sh](meta-tools/runrgibwt.sh) script with the correct paths to your reads. 
+
+- Lines [13/14](meta-tools/runrgibwt.sh#L13) should be changed to the direct path of the reads along with lines [49/50](meta-tools/runrgibwt.sh#L49). 
+- Line [17](meta-tools/runrgibwt.sh#L17) and subsequent lines should direct to the output location. 
+- Line 18 can be modified in case the CARD reference is installed globally (remove the --local flag) and if the wildcard/variants db is not included (remove the --wildcard flag)
 
 If the database is not installed locally there are a few lines that need to be changed in the [filter_pull_reads.py script](meta-tools/scripts/filter_pull_reads.py)
 
