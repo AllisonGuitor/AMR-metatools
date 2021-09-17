@@ -69,15 +69,20 @@ For processing many samples, it is ideal to create a for loop or file to run all
 
 Ensure the folder in which you are running the all.sh command contains the [runrgibwt.sh](meta-tools/runrgibwt.sh) script with the correct paths to your reads. 
 
-- Lines [13/14](meta-tools/runrgibwt.sh#L13) should be changed to the direct path of the reads along with lines [49/50](meta-tools/runrgibwt.sh#L49). 
-- Line [17](meta-tools/runrgibwt.sh#L17) and subsequent lines should direct to the output location. 
-- Line [18](meta-tools/runrgibwt.sh#L18) can be modified in case the CARD reference is installed globally (remove the --local flag) and if the wildcard/variants db is not included (remove the --wildcard flag)
+- Lines [12/13](meta-tools/runrgibwt.sh#L12) should be changed to the direct path of the reads along with lines [48/49](meta-tools/runrgibwt.sh#L48). 
+- Line [16](meta-tools/runrgibwt.sh#L16) and subsequent lines (26, 30, 38, 39, 40, 46, 47, 50, 55 - 59, 64, 65, 68, 69, 71, 73, 76, 79, 81, 83) should direct to the output location. 
+- Line [17](meta-tools/runrgibwt.sh#L17) can be modified in case the CARD reference is installed globally (remove the --local flag) and if the wildcard/variants db is not included (remove the --wildcard flag)
 
 If the database is not installed locally there are a few lines that need to be changed in the [filter_pull_reads.py script](meta-tools/scripts/filter_pull_reads.py)
 
 - Line 68, 161 and 166 run rgi main/kmer query - remove the --local flag if the db is loaded globally
 Also check the following lines: 
 - Line 61 and Line 150 - ensure the correct path to metaspades and that the memory and threads flags are appropriate
+
+
+**Other Notes**
+
+The number of threads and memory will need to manually changed in various scripts including the [filter_pull_reads.py script](meta-tools/scripts/filter_pull_reads.py) and the [runrgibwt.sh scripts](meta-tools/runrgibwt.sh)
 
 
 
