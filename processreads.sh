@@ -1,6 +1,6 @@
 #!/bin/bash
 echo using prefix $1
-
+## Use to prepare reads for input into RGI*BWT. Includes trimming and deduplication of reads using BBTools.
 ## The line below might need to be adjusted depending on the output of the sequencing data. 
 gunzip $1/*R*fastq.gz
 
