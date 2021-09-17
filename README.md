@@ -1,16 +1,15 @@
 **Meta-AMR analysis tools**
 
-This repository contains the necessary scripts for running a metagenomic analysis of sequencing data to detect antibiotic resistance genes (ARGs).
+This repository contains the necessary scripts for running a metagenomic analysis of sequencing data to detect antibiotic resistance genes (ARGs). This is a beta version of RGI*BWT developed by [Amos Raphenya](https://github.com/raphenya) . 
 
 This suite of commands is ideal for use with MiSeq or HiSeq Illumina sequencing data (2 x 250 bp reads ideally)
 This pipeline can be used with either shotgun sequencing data or targeted capture data. 
 
 ** Contents **
 - [processreads.sh](meta-tools/processreads.sh) - script for preparing reads
-- [runrgibwt.sh](meta-tools/runrgibwt.sh) - code for running the main rgi*bwt functions with additional filtering of results 
-- [scripts](meta-tools/scripts) folder contains all the scripts required to run rgi*bwt
-- [additional scripts](meta-tools/additional scripts)
-
+- [runrgibwt.sh](meta-tools/runrgibwt.sh) - code for running the main RGI*BWT functions with additional filtering of results 
+- [scripts](meta-tools/scripts) folder contains all the scripts required to run RGI*BWT
+- [additionalscripts](meta-tools/additionalscripts)folder contains additional (optional) scripts called in the runrgibwt.sh 
 
 
 **Requirements**
