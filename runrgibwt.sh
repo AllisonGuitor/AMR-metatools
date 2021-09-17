@@ -64,13 +64,15 @@ python3 scripts/report_one.py \
 --final_report /path/to/output/$1.final_output.tsv \
 --output /path/to/output/$1
 
-echo "===================================  Count Reads Gene_mapping_data ==================================="
+echo "========================  Count Reads Gene_mapping_data =========================="
 cat /path/to/output/$1.overall_mapping_stats.txt
 wc /path/to/output/$1.gene_mapping_data.txt
 additionalscripts/filterbyreadcounts.sh /path/to/output/$1
 wc /path/to/output/$1.final_report1.tsv
-
+echo "========================  Assembly and RGI stats =========================="
 additionalscripts/stats.py /path/to/output/$1.scaffolds.fasta
+
+echo Count RGI hits (+1)
 wc /path/to/output/$1.scaffolds.fasta.output.txt
 
 echo Count Perfect Hits
