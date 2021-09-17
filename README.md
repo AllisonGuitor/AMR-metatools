@@ -1,6 +1,6 @@
 **Meta-AMR analysis tools**
 
-This repository contains the necessary scripts for running a metagenomic analysis of data to detect antibiotic resistance genes (ARGs).
+This repository contains the necessary scripts for running a metagenomic analysis of sequencing data to detect antibiotic resistance genes (ARGs).
 
 This suite of commands is ideal for use with MiSeq or HiSeq Illumina sequencing data (2 x 250 bp reads ideally)
 This pipeline can be used with either shotgun sequencing data or targeted capture data. 
@@ -13,9 +13,9 @@ This pipeline can be used with either shotgun sequencing data or targeted captur
 - RGI v 5.1.1 tested (instructions for download [here](https://github.com/arpcard/rgi)) Installing via Conda is recommended. 
 - CARD database downloaded and loaded into RGI. 
 -   Tested using CARD v 3.1.0 https://card.mcmaster.ca/download/0/broadstreet-v3.1.0.tar.bz2 and the prevalence/variants database 3.0.7 https://card.mcmaster.ca/download/6/prevalence-v3.0.7.tar.bz2 
-- Follow the instructions [here](https://github.com/arpcard/rgi#id42) to load the CARD databases. If you think you will be using RGI and various version of CARD it might be best to load the data locally using the --local flag. 
-- Ensure you follow the instruction to load `Additional Reference Data for Metagenomics Analyses` including the steps for `Additional Reference Data for K-mer Pathogen-of-Origin Analyses`
-- This pipeline uses RGI bwt or the Metagenomic feature of RGI. More information on it can be found [here](https://github.com/arpcard/rgi#id51). Test that rgi bwt works using 
+- Follow the instructions [here](https://github.com/arpcard/rgi#id42) to load the CARD databases. If you think you will be using RGI and various version of CARD, it might be best to load the data locally using the --local flag. 
+- Ensure you follow the instructions to load `Additional Reference Data for Metagenomics Analyses` including the steps for `Additional Reference Data for K-mer Pathogen-of-Origin Analyses`
+- This pipeline uses RGI*BWT or the Metagenomic feature of RGI. More information on it can be found [here](https://github.com/arpcard/rgi#id51). After installing RGI, test that RGI*BWT works using: 
 ```
 rgi bwt --help
 ```
