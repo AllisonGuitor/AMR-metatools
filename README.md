@@ -5,6 +5,14 @@ This repository contains the necessary scripts for running a metagenomic analysi
 This suite of commands is ideal for use with MiSeq or HiSeq Illumina sequencing data (2 x 250 bp reads ideally)
 This pipeline can be used with either shotgun sequencing data or targeted capture data. 
 
+** Contents **
+- [processreads.sh](meta-tools/processreads.sh) - script for preparing reads
+- [runrgibwt.sh](meta-tools/runrgibwt.sh) - code for running the main rgi*bwt functions with additional filtering of results 
+- [scripts](meta-tools/scripts) folder contains all the scripts required to run rgi*bwt
+- [additional scripts](meta-tools/additional scripts)
+
+
+
 **Requirements**
 
 - Skewer v0.2.2 tested - https://github.com/relipmoc/skewer 
