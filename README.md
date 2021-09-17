@@ -26,7 +26,7 @@ rgi databases -v --all --local
 
 **Step 1 - Trim reads**
 
-Use the processreads.sh script to trim reads using skewer and remove duplicate reads (optional) using dedupe.sh. 
+Use the [processreads.sh](meta-tools/processreads.sh) script to trim reads using skewer and remove duplicate reads (optional) using dedupe.sh. 
 This bash script can be run in a folder above the folder containing the raw reads for a given sample. 
 
 ```
@@ -64,7 +64,7 @@ Ensure the folder in which you are running the all.sh command contains the [runr
 
 - Lines [13/14](meta-tools/runrgibwt.sh#L13) should be changed to the direct path of the reads along with lines [49/50](meta-tools/runrgibwt.sh#L49). 
 - Line [17](meta-tools/runrgibwt.sh#L17) and subsequent lines should direct to the output location. 
-- Line 18 can be modified in case the CARD reference is installed globally (remove the --local flag) and if the wildcard/variants db is not included (remove the --wildcard flag)
+- Line [18](meta-tools/runrgibwt.sh#L18) can be modified in case the CARD reference is installed globally (remove the --local flag) and if the wildcard/variants db is not included (remove the --wildcard flag)
 
 If the database is not installed locally there are a few lines that need to be changed in the [filter_pull_reads.py script](meta-tools/scripts/filter_pull_reads.py)
 
