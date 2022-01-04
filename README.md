@@ -5,7 +5,7 @@ This repository contains the necessary scripts for running a metagenomic analysi
 This suite of commands is ideal for use with MiSeq or HiSeq Illumina sequencing data (2 x 250 bp reads ideally)
 This pipeline can be used with either shotgun sequencing data or targeted capture data. 
 
-** Contents **
+**Contents**
 - [processreads.sh](meta-tools/processreads.sh) - script for preparing reads
 - [runrgibwt.sh](meta-tools/runrgibwt.sh) - code for running the main RGI*BWT functions with additional filtering of results 
 - [scripts](meta-tools/scripts) folder contains all the scripts required to run RGI*BWT
@@ -18,16 +18,28 @@ This pipeline can be used with either shotgun sequencing data or targeted captur
 - BBTools/BBMap v 38.57 tested - dedupe.sh and bbsplitpairs.sh https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/dedupe-guide/ 
 - Optional subsampling using seqtk (v 1.3 tested) https://github.com/lh3/seqtk
 - RGI v 5.1.0 tested (instructions for download [here](https://github.com/arpcard/rgi)) Installing via Conda is recommended.
-- spades v 3.13.1 recommended (https://cab.spbu.ru/software/spades/)
+- SPAdes v 3.13.1 recommended (https://cab.spbu.ru/software/spades/)
 - bowtie2 v 2.4.2  (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 
-* Tip * 
+**Tip** : A quick way to install the correct version of rgi and spades to ensure the clinical_reporter pipeline works properly is to create a conda environment:
+- Create a .yaml text file with the following and name it appropriately (ie. clinical_reports.yaml): 
+> name: clinical_reports
+> channels:       
+>   - conda-forge 
+>   - bioconda    
+>   - defaults  
+> dependencies:    
+>   - spades=3.13.1
+>   - seqtk=1.3
+>   - samtools=1.9
+>   - fastq-pair=1.0
+>   - rgi=5.1.0
+- Use the command `conda env create -f clinical_reports.yaml`
+- activate the conda environment using `conda activate clinical_reports`
+- Once in the environment, ensure the correct versions of the programs mentioned above (ie. rgi, SPAdes, etc) are installed properly. 
 
-A quick way to install the correct version of rgi and spades to ensure the clinical_reporter pipeline works properly is to create a conda environment:
-  
-
-
-- CARD database downloaded and loaded into RGI. 
+**Load CARD databases**
+- Next, download and load the CARD databases locally into RGI. 
 -   Tested using CARD v 3.1.0 https://card.mcmaster.ca/download/0/broadstreet-v3.1.0.tar.bz2 and the prevalence/variants database 3.0.7 https://card.mcmaster.ca/download/6/prevalence-v3.0.7.tar.bz2 
 - Follow the instructions [here](https://github.com/arpcard/rgi#id42) to load the CARD databases. If you think you will be using RGI and various version of CARD, it might be best to load the data locally using the --local flag. 
 - Ensure you follow the instructions to load `Additional Reference Data for Metagenomics Analyses` including the steps for `Additional Reference Data for K-mer Pathogen-of-Origin Analyses`
@@ -85,6 +97,7 @@ Ensure the folder in which you are running the all.sh command contains the [runr
 If the database is not installed locally there are a few lines that need to be changed in the [filter_pull_reads.py script](meta-tools/scripts/filter_pull_reads.py)
 
 - Line 68, 161 and 166 run rgi main/kmer query - remove the --local flag if the db is loaded globally
+
 Also check the following lines: 
 - Line 61 and Line 150 - ensure the correct path to metaspades and that the memory and threads flags are appropriate
 
