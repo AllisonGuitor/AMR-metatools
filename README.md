@@ -17,7 +17,16 @@ This pipeline can be used with either shotgun sequencing data or targeted captur
 - Skewer v0.2.2 tested - https://github.com/relipmoc/skewer 
 - BBTools/BBMap v 38.57 tested - dedupe.sh and bbsplitpairs.sh https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/dedupe-guide/ 
 - Optional subsampling using seqtk (v 1.3 tested) https://github.com/lh3/seqtk
-- RGI v 5.1.1 tested (instructions for download [here](https://github.com/arpcard/rgi)) Installing via Conda is recommended. 
+- RGI v 5.1.0 tested (instructions for download [here](https://github.com/arpcard/rgi)) Installing via Conda is recommended.
+- spades v 3.13.1 recommended (https://cab.spbu.ru/software/spades/)
+- bowtie2 v 2.4.2  (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+
+* Tip * 
+
+A quick way to install the correct version of rgi and spades to ensure the clinical_reporter pipeline works properly is to create a conda environment:
+  
+
+
 - CARD database downloaded and loaded into RGI. 
 -   Tested using CARD v 3.1.0 https://card.mcmaster.ca/download/0/broadstreet-v3.1.0.tar.bz2 and the prevalence/variants database 3.0.7 https://card.mcmaster.ca/download/6/prevalence-v3.0.7.tar.bz2 
 - Follow the instructions [here](https://github.com/arpcard/rgi#id42) to load the CARD databases. If you think you will be using RGI and various version of CARD, it might be best to load the data locally using the --local flag. 
