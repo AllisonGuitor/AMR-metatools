@@ -46,7 +46,7 @@ python3 scripts/filter_pull_reads.py \
 --bam_file /path/to/output/$1.sorted.length_100.bam \
 --json_file /path/to/output/$1.families.json \
 --read_one /path/to/trimmedanddeduplicatedreads1.fastq \
---read_two /path/to/trimmedanddeduplicatedreads1.fastq \
+--read_two /path/to/trimmedanddeduplicatedreads2.fastq \
 --output /path/to/output/$1
 
 echo "===================================  CONSOLIDATE CLINICAL REPORT ==================================="
