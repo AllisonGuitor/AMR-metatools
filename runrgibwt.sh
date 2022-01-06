@@ -35,7 +35,7 @@ echo "=================================== GENERATE CLINICAL REPORT =============
 ## These need to to be accessible in the folder where the rgibwtscript is being run
 
 python3 scripts/clinical_report.py \
---bwt_report ./path/to/output/$1.gene_mapping_data.txt \
+--bwt_report /path/to/output/$1.gene_mapping_data.txt \
 --kmer /path/to/output/$1.sorted.length_100.bam_61mer_analysis.gene.txt \
 --output /path/to/output/$1
 
