@@ -72,7 +72,7 @@ wc /path/to/output/$1.final_report1.tsv
 echo "========================  Assembly and RGI stats =========================="
 additionalscripts/stats.py /path/to/output/$1.scaffolds.fasta
 
-echo Count RGI hits (+1)
+echo "Count RGI hits (+1)"
 wc /path/to/output/$1.scaffolds.fasta.output.txt
 
 echo Count Perfect Hits
