@@ -54,7 +54,7 @@ rgi databases -v --all --local
 
 **Step 1 - Trim reads**
 
-Use the [processreads.sh](AMR-metatools/processreads.sh) script to trim reads using skewer and remove duplicate reads (optional) using dedupe.sh. 
+Use the [processreads.sh](processreads.sh) script to trim reads using skewer and remove duplicate reads (optional) using dedupe.sh. 
 This bash script can be run in a folder above the folder containing the raw reads for a given sample. 
 
 ```
@@ -88,13 +88,13 @@ For processing many samples, it is ideal to create a for loop or file to run all
 
 **Step 3 - Run all.sh file**
 
-Ensure the folder in which you are running the all.sh command contains the [runrgibwt.sh](AMR-metatools/runrgibwt.sh) script with the correct paths to your reads. 
+Ensure the folder in which you are running the all.sh command contains the [runrgibwt.sh](runrgibwt.sh) script with the correct paths to your reads. 
 
-- Lines [12/13](AMR-metatools/runrgibwt.sh#L12) should be changed to the direct path of the reads along with lines [48/49](AMR-metatools/runrgibwt.sh#L48). 
-- Line [16](AMR-metatools/runrgibwt.sh#L16) and subsequent lines (26, 30, 38, 39, 40, 46, 47, 50, 55 - 59, 64, 65, 68, 69, 71, 73, 76, 79, 81, 83) should direct to the output location. 
-- Line [17](AMR-metatools/runrgibwt.sh#L17) can be modified in case the CARD reference is installed globally (remove the --local flag) and if the wildcard/variants db is not included (remove the --wildcard flag)
+- Lines [12/13](runrgibwt.sh#L12) should be changed to the direct path of the reads along with lines [48/49](runrgibwt.sh#L48). 
+- Line [16](runrgibwt.sh#L16) and subsequent lines (26, 30, 38, 39, 40, 46, 47, 50, 55 - 59, 64, 65, 68, 69, 71, 73, 76, 79, 81, 83) should direct to the output location. 
+- Line [17](runrgibwt.sh#L17) can be modified in case the CARD reference is installed globally (remove the --local flag) and if the wildcard/variants db is not included (remove the --wildcard flag)
 
-If the database is not installed locally there are a few lines that need to be changed in the [filter_pull_reads.py script](AMR-metatools/scripts/filter_pull_reads.py)
+If the database is not installed locally there are a few lines that need to be changed in the [filter_pull_reads.py script](scripts/filter_pull_reads.py)
 
 - Line 68, 161 and 166 run rgi main/kmer query - remove the --local flag if the db is loaded globally
 
@@ -104,7 +104,7 @@ Also check the following lines:
 
 **Other Notes**
 
-The number of threads and memory will need to manually changed in various scripts including the [filter_pull_reads.py script](AMR-metatools/scripts/filter_pull_reads.py) and the [runrgibwt.sh scripts](AMR-metatools/runrgibwt.sh)
+The number of threads and memory will need to manually changed in various scripts including the [filter_pull_reads.py script](scripts/filter_pull_reads.py) and the [runrgibwt.sh scripts](runrgibwt.sh)
 
 
 
