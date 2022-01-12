@@ -7,9 +7,9 @@ This pipeline can be used with either shotgun sequencing data or targeted captur
 
 **Contents**
 - [processreads.sh](./processreads.sh) - script for preparing reads
-- [runrgibwt.sh](AMR-metatools/runrgibwt.sh) - code for running the main RGI*BWT functions with additional filtering of results 
-- [scripts](AMR-metatools/scripts) folder contains all the scripts required to run RGI*BWT
-- [additionalscripts](AMR-metatools/additionalscripts)folder contains additional (optional) scripts called in the runrgibwt.sh 
+- [runrgibwt.sh](./runrgibwt.sh) - code for running the main RGI*BWT functions with additional filtering of results 
+- [scripts](scripts) folder contains all the scripts required to run RGI*BWT
+- [additionalscripts](additionalscripts)folder contains additional (optional) scripts called in the runrgibwt.sh 
 
 
 **Requirements**
