@@ -1,6 +1,6 @@
 **Meta-AMR analysis tools**
 
-This repository contains the necessary scripts for running a metagenomic analysis of sequencing data to detect antibiotic resistance genes (ARGs). This is a beta version of RGI*BWT developed by [Amos Raphenya](https://github.com/raphenya) . 
+This repository contains the necessary scripts for running a metagenomic analysis of sequencing data to detect antibiotic resistance genes (ARGs). This is a beta version of RGI <i>bwt<i> developed by [Amos Raphenya](https://github.com/raphenya) . 
 
 This suite of commands is ideal for use with MiSeq or HiSeq Illumina sequencing data (2 x 250 bp reads ideally)
 This pipeline can be used with either shotgun sequencing data or targeted capture data. 
@@ -21,7 +21,7 @@ This pipeline can be used with either shotgun sequencing data or targeted captur
 - SPAdes v 3.13.1 recommended (https://cab.spbu.ru/software/spades/)
 - bowtie2 v 2.4.2  (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 
-**Tip** : A quick way to install the correct version of rgi and spades to ensure the clinical_reporter pipeline works properly is to create a conda environment:
+**Tip** : A quick way to install the correct version of RGI and SPAdes to ensure the clinical_reporter pipeline works properly is to create a conda environment:
 - Create a .yaml text file with the following and name it appropriately (ie. clinical_reports.yaml): 
 > name: clinical_reports
 > channels:       
@@ -36,14 +36,14 @@ This pipeline can be used with either shotgun sequencing data or targeted captur
 >   - rgi=5.1.0
 - Use the command `conda env create -f clinical_reports.yaml`
 - activate the conda environment using `conda activate clinical_reports`
-- Once in the environment, ensure the correct versions of the programs mentioned above (ie. rgi, SPAdes, etc) are installed properly. 
+- Once in the environment, ensure the correct versions of the programs mentioned above (ie. RGI, SPAdes, etc) are installed properly. 
 
 **Load CARD databases**
 - Next, download and load the CARD databases locally into RGI. 
 -   Tested using CARD v 3.1.0 https://card.mcmaster.ca/download/0/broadstreet-v3.1.0.tar.bz2 and the prevalence/variants database 3.0.7 https://card.mcmaster.ca/download/6/prevalence-v3.0.7.tar.bz2 
 - Follow the instructions [here](https://github.com/arpcard/rgi#id42) to load the CARD databases. If you think you will be using RGI and various version of CARD, it might be best to load the data locally using the --local flag. 
 - Ensure you follow the instructions to load `Additional Reference Data for Metagenomics Analyses` including the steps for `Additional Reference Data for K-mer Pathogen-of-Origin Analyses`
-- This pipeline uses RGI*BWT or the Metagenomic feature of RGI. More information on it can be found [here](https://github.com/arpcard/rgi#id51). After installing RGI, test that RGI*BWT works using: 
+- This pipeline uses RGI <i>bwt<i> or the Metagenomic feature of RGI. More information on it can be found [here](https://github.com/arpcard/rgi#id51). After installing RGI, test that RGI <i>bwt<i> works using: 
 ```
 rgi bwt --help
 ```
@@ -51,7 +51,11 @@ If databases are installed localled, move to the folder that contains the `/loca
 ```
 rgi databases -v --all --local
 ```
-
+**Download this repo**
+```
+git clone https://github.com/AllisonGuitor/AMR-metatools/
+```
+ 
 **Step 1 - Trim reads**
 
 Use the [processreads.sh](processreads.sh) script to trim reads using skewer and remove duplicate reads (optional) using dedupe.sh. 
