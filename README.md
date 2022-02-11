@@ -53,7 +53,7 @@ rgi databases -v --all --local
 ```
 **Download this repo**
 ```
-git clone https://github.com/AllisonGuitor/AMR-metatools/
+git clone https://github.com/AllisonGuitor/AMR-metatools.git
 ```
  
 **Step 1 - Trim reads**
