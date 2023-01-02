@@ -5,6 +5,10 @@ This repository contains the necessary scripts for running a metagenomic analysi
 This suite of commands is ideal for use with MiSeq or HiSeq Illumina sequencing data (2 x 250 bp reads ideally)
 This pipeline can be used with either shotgun sequencing data or targeted capture data. 
 
+**Updates January 2023**
+- Updated scripts to run with kma mapping rather than Bowtie2 mapper. These additional scripts are labelled with kma in the name instead. 
+- See [117](README.md#L117) for additional considerations. It is recommended to read this whole README before proceeding. 
+
 **Contents**
 - [processreads.sh](./processreads.sh) - script for preparing reads
 - [runrgibwt.sh](./runrgibwt.sh) - code for running the main RGI*BWT functions with additional filtering of results 
