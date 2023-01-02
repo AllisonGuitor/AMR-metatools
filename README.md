@@ -114,6 +114,6 @@ Also check the following lines:
 
 The number of threads and memory will need to manually changed in various scripts including the [filter_pull_reads.py script](scripts/filter_pull_reads.py) and the [runrgibwt.sh scripts](runrgibwt.sh)
 
-
+hi
 
 
