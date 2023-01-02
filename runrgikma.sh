@@ -10,11 +10,11 @@ echo "=================================== RUN RGI BWT WITH KMA ON TWO PAIRED REA
 ## Edit paths to reflect location of reads as well as where the output will be saved.
 
 rgi bwt \
---read_one ./path/to/trimmedanddeduplicatedreads1.fastq \
---read_two ./path/to/trimmedanddeduplicatedreads2.fastq \
+--read_one /path/to/trimmedanddeduplicatedreads1.fastq \
+--read_two /path/to/trimmedanddeduplicatedreads2.fastq \
 --aligner kma \
 --threads 20 \
---output_file ./path/to/output/$1 \
+--output_file /path/to/output/$1 \
 --debug --clean --local
 echo "=================================== RUN RGI KMER_QUERY ON RGI*BWT ===================================="
 ## To generate predictions of potential bacterial hosts of resistance genes
@@ -22,11 +22,11 @@ echo "=================================== RUN RGI KMER_QUERY ON RGI*BWT ========
 ## change the --local flag if needed and # of threads as appropriate
 
 rgi kmer_query \
---input ./path/to/output/$1.sorted.length_100.bam \
+--input /path/to/output/$1.sorted.length_100.bam \
 --kmer_size 61 \
 --bwt \
 --threads 20 \
---output ./path/to/output/$1.sorted.length_100.kmer.bam \
+--output /path/to/output/$1.sorted.length_100.kmer.bam \
 --debug --local
 
 echo "================================== Run assembly and RGI*main ======================================="
@@ -39,14 +39,14 @@ echo "================================== Run assembly and RGI*main =============
 ## Edit paths to reflect location of reads as well as where the output will be saved.
 
 metaspades.py -t 24 -m 64 \
--1 ./path/to/trimmedanddeduplicatedreads1.fastq \
--2 ./path/to/trimmedanddeduplicatedreads2.fastq \
--o ./path/to/output/$1
+-1 /path/to/trimmedanddeduplicatedreads1.fastq \
+-2 /path/to/trimmedanddeduplicatedreads2.fastq \
+-o /path/to/output/$1
 
-cp ./path/to/output/$1/scaffolds.fasta ./path/to/output/$1.scaffolds.fasta
+cp /path/to/output/$1/scaffolds.fasta /path/to/output/$1.scaffolds.fasta
 
-rgi main -i ./path/to/output/$1.scaffolds.fasta \
--o ./path/to/output/$1.scaffolds.fasta.output --local --debug \
+rgi main -i /path/to/output/$1.scaffolds.fasta \
+-o /path/to/output/$1.scaffolds.fasta.output --local --debug \
 -a blast --clean --exclude_nudge --low_quality
 
 echo "================================  Assembly and RGI stats ========================================="
@@ -54,24 +54,24 @@ echo "================================  Assembly and RGI stats =================
 ## Hits, number of Strict hits, and number of Strict hits that were nudged from Loose to strict.
 ## The RGI*main results are then filtered for AMR gene families
 
-additionalscripts/stats.py ./path/to/output/$1.scaffolds.fasta
+additionalscripts/stats.py /path/to/output/$1.scaffolds.fasta
 
 echo "Count RGI hits (+1)"
-wc ./path/to/output/$1.scaffolds.fasta.output.txt
+wc /path/to/output/$1.scaffolds.fasta.output.txt
 
 echo "Count Perfect Hits"
-grep "Perfect" ./path/to/output/$1.scaffolds.fasta.output.txt | wc
+grep "Perfect" /path/to/output/$1.scaffolds.fasta.output.txt | wc
 echo "Count Strict Hits"
-grep "Strict" ./path/to/output/$1.scaffolds.fasta.output.txt | wc
+grep "Strict" /path/to/output/$1.scaffolds.fasta.output.txt | wc
 echo "Count Nudged hits"
-grep "loose hit" ./path/to/output/$1.scaffolds.fasta.output.txt | wc
+grep "loose hit" /path/to/output/$1.scaffolds.fasta.output.txt | wc
 
 echo "Filtering RGI*main results for gene families"
-python additionalscripts/card_counts_genefam_rgi.py ./path/to/output/$1.scaffolds.fasta.output.txt
+python additionalscripts/card_counts_genefam_rgi.py /path/to/output/$1.scaffolds.fasta.output.txt
 
-mv genefamilies.csv ./path/to/output/$1-rgi-genefams.csv
+mv genefamilies.csv /path/to/output/$1-rgi-genefams.csv
 
-mv genefamilyreadcounts.csv ./path/to/output/$1-rgi-genefamcounts.csv
+mv genefamilyreadcounts.csv /path/to/output/$1-rgi-genefamcounts.csv
 
 echo "========================  Count Reads Gene_mapping_data =========================="
 ## First, look at the overall number of reads mapping to CARD with the overall_mapping_stats
