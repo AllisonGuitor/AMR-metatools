@@ -7,7 +7,7 @@ This pipeline can be used with either shotgun sequencing data or targeted captur
 
 **Updates January 2023**
 - Updated scripts to run with kma mapping rather than Bowtie2 mapper. These additional scripts are labelled with kma in the name instead. 
-- See [117](README.md#L117) for additional considerations. It is recommended to read this whole README before proceeding. 
+- See [117](./README.md#L117) for additional considerations. It is recommended to read this whole README before proceeding. 
 
 **Contents**
 - [processreads.sh](./processreads.sh) - script for preparing reads
