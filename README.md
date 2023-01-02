@@ -7,15 +7,19 @@ This pipeline can be used with either shotgun sequencing data or targeted captur
 
 **Updates January 2023**
 - Updated scripts to run with kma mapping rather than Bowtie2 mapper. These additional scripts are labelled with kma in the name instead. 
-- See [117](./README.md#L117) for additional considerations. It is recommended to read this whole README before proceeding. 
+- See [Updates 2023](#updates-2023) for additional considerations. It is recommended to read this whole README before proceeding. 
 
 **Contents**
 - [processreads.sh](./processreads.sh) - script for preparing reads
 - [runrgibwt.sh](./runrgibwt.sh) - code for running the main RGI*BWT functions with additional filtering of results 
 - [scripts](scripts) folder contains all the scripts required to run RGI*BWT
-- [additionalscripts](additionalscripts)folder contains additional (optional) scripts called in the runrgibwt.sh 
+- [additionalscripts](additionalscripts) folder contains additional (optional) scripts called in the runrgibwt.sh 
 
-
+ ## Installation
+<details>
+ <summary>Requirements and Loading CARD</summary>
+ 
+ 
 **Requirements**
 
 - Skewer v0.2.2 tested - https://github.com/relipmoc/skewer 
@@ -59,8 +63,14 @@ rgi databases -v --all --local
 ```
 git clone https://github.com/AllisonGuitor/AMR-metatools.git
 ```
+ </details>
+
+## Running
+<details>
+ <summary>Trimming reads, optional subsampling, and running RGI*bwt</summary>
+
  
-**Step 1 - Trim reads**
+ **Step 1 - Trim reads**
 
 Use the [processreads.sh](processreads.sh) script to trim reads using skewer and remove duplicate reads (optional) using dedupe.sh. 
 This bash script can be run in a folder above the folder containing the raw reads for a given sample. 
@@ -113,7 +123,29 @@ Also check the following lines:
 **Other Notes**
 
 The number of threads and memory will need to manually changed in various scripts including the [filter_pull_reads.py script](scripts/filter_pull_reads.py) and the [runrgibwt.sh scripts](runrgibwt.sh)
+ 
+  </details>
 
-hi
+ ## Updates 2023
+<details>
+ <summary>Updated requirements and instructions for use with kma mapper</summary>
+ 
+ 
+**Contents**
+- [processreads.sh](./processreads.sh) - script for preparing reads
+- [runrgikma.sh](./runrgikma.sh) - code for running the main RGI*BWT functions with additional filtering of results 
+- [scripts](scripts) folder contains all the scripts required to run RGI*BWT
+- [additionalscripts](additionalscripts) folder contains additional (optional) scripts called in the runrgikma.sh 
 
+**Requirements**
 
+- Skewer v0.2.2 tested - https://github.com/relipmoc/skewer 
+- BBTools/BBMap v 38.57 tested - dedupe.sh and bbsplitpairs.sh https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/dedupe-guide/ 
+- Optional subsampling using seqtk (v 1.3 tested) https://github.com/lh3/seqtk
+- RGI v 5.2.0 tested (instructions for download [here](https://github.com/arpcard/rgi)) Installing via Conda is recommended.
+- SPAdes v 3.13.0 recommended (https://cab.spbu.ru/software/spades/)
+- kma version 1.3.4 (https://bitbucket.org/genomicepidemiology/kma/src/master/)
+ 
+**Load CARD databases**
+- These scripts have been tested with CARD v 3.2.1 but not with the prevalence/variants database. https://card.mcmaster.ca/download/0/broadstreet-v3.2.1.tar.bz2
+ </details>
