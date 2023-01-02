@@ -148,4 +148,10 @@ The number of threads and memory will need to manually changed in various script
  
 **Load CARD databases**
 - These scripts have been tested with CARD v 3.2.1 but not with the prevalence/variants database. https://card.mcmaster.ca/download/0/broadstreet-v3.2.1.tar.bz2
+ 
+**Filtering of results**
+ - The current [runrgikma.sh](./runrgikma.sh) pipeline filters the read mapping results for genes with at least 85% coverage and 50 reads or 100% coverage and 10 reads. 
+ - This filtering calls upon scripts in the [additionalscripts](additionalscripts) folder. 
+ - The RGI*main results are further filtered into AMR Gene Families which are a high classifiation of antibiotic resistance genes. This could be useful when summarizing the types of resistance identified in a given metagenome. 
+ - This filtering is also done with the RGI*bwt mapping results. 
  </details>
